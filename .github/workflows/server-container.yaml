@@ -1,4 +1,4 @@
-name: Build and Push Container Image
+name: Build and Push Server Image
 on: [push]
 env:
   IMAGE_NAME: ghcr.io/4armed/interactsh-server
