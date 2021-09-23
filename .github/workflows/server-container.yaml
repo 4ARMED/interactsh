@@ -15,7 +15,7 @@ jobs:
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_SHA} | cut -c1-7)
       - name: Build the tagged Docker image
-        run: docker build . --tag ${{ env.IMAGE_NAME }}:${{steps.vars.outputs.tag}}
+        run: docker build . -f server/Dockerfile --tag ${{ env.IMAGE_NAME }}:${{steps.vars.outputs.tag}}
       - name: Push the tagged Docker image
         run: docker push ${{ env.IMAGE_NAME }}:${{steps.vars.outputs.tag}}
       - name: Tag image as latest
